@@ -2,7 +2,7 @@
 Assignment of Big Data course UPC-EETAC Catalunya
 
 Developed by Gabriel D. Urrutia and Syed Haider Ali Kazmi  
-#General Description
+# General Description
 
 This code is for analyzing the differences between the execution of a frequency-word counter using two different methods, sequential python and parallel execution with spark
 
