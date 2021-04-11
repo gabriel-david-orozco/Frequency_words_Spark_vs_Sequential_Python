@@ -9,12 +9,14 @@ def differentWordsCounter_v2 (text) : # Word counter based on dictionaries text 
       counts[word] = 1
   return sorted(counts.items(), key=lambda x: x[1], reverse=True)
 
+print("How many files you want to append?")
+tolal_number_files = input ()
+
 print("Put the names of the files you want to evaluate")
 files_to_evaluate = []
-files_to_evaluate.append(input ())
-files_to_evaluate.append(input ())
-files_to_evaluate.append(input ())
-files_to_evaluate.append(input ())
+for m in range(tolal_number_files):
+    files_to_evaluate.append(input ())
+
 for k in range(1, 20):
     for i in files_to_evaluate:
         j = 0

@@ -1,15 +1,19 @@
 from pyspark import SparkContext, SparkConf
 import time
 sc = SparkContext(appName="word_counter")
-files_to_evaluate = []
+
+print("How many files you want to append?")
+tolal_number_files = input ()
+
 print("Put the names of the files you want to evaluate")
-files_to_evaluate[0] = input ( prompt )
-files_to_evaluate[1] = input ( prompt )
-files_to_evaluate[2] = input ( prompt )
+files_to_evaluate = []
+for m in range(tolal_number_files):
+    files_to_evaluate.append(input ())
+
 print("Put the number of workers in the cluster")
-files_to_evaluate[2] = input ( machines )
+machines = input ()
 print("Put the number of cores in each machines")
-files_to_evaluate[2] = input ( cores )
+cores = input ()
 for i in files_to_evaluate:
     j = 1
     # Simply reading the context for spark and spliting using lines
