@@ -14,7 +14,7 @@ tolal_number_files = input ()
 
 print("Put the names of the files you want to evaluate")
 files_to_evaluate = []
-for m in range(tolal_number_files):
+for m in range(int(tolal_number_files)):
     files_to_evaluate.append(input ())
 
 for k in range(1, 20):
