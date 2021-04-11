@@ -16,5 +16,6 @@ We ran the code in a cluster of 5 VM deployed in AWS london, each machine has 1 
 It is important to mention that in order to execute the code for the spark version is necessary to run the main_script.sh in the summit-spark container. Moreover, each machine has to clone this repo in the /home directory for the code to work.
 
 # Performance conclusions
-results.png shows the results, important to mention that we ran 20 times for finding the error and adding and removing machines to the spark cluster in order to compare the performance according to the size of the cluster.
+results.png shows the results, we ran 20 times for finding the error and adding and removing machines to the spark cluster in order to compare the performance according to the size of the cluster.
+
 As we can see in results.png, using sequential python gave better results than spark, this is due to the computational resources used for maintaining the spark cluster synchronized. However, for enormously large files that are not able to run on sequential python or to improve the horizontal scalability capability of spark clusters
