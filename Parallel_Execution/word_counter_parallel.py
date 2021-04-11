@@ -2,7 +2,6 @@ from pyspark import SparkContext, SparkConf
 import time
 sc = SparkContext(appName="word_counter")
 for i in range(1):
-    #lineas = sc.textFile("/quijote.txt", minPartitions=2)
     lineas = sc.textFile("/home/quijote.txt",minPartitions=2).flatMap(lambda line: line.split(" "))
     #lineas = sc.textFile("/home/words.txt")
     #Se extrae las palabras del texto y se cuentan

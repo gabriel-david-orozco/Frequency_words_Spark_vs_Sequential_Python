@@ -1,5 +1,6 @@
 import os
-def unifier(query):
+def unifier(query, number_of_files):
+    query = str(number_of_files) + "_" + query
     queryfolder = os.listdir(query + '/text_files')
     full_file_text = query + "_full_text.txt"
 

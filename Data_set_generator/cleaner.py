@@ -18,7 +18,8 @@ def deleteTags(pageContents):  # This removes the rest of the html components th
             text += char
     return text
 
-def cleaner(query) :
+def cleaner(query, number_of_files) :
+    query = str(number_of_files) + "_" + query
     opener = open(query + "_full_text.txt", 'r')
     original_text = opener.read()
     text = stripTags(original_text)

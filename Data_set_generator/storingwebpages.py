@@ -1,5 +1,6 @@
 import urllib.request, math, os
 def results(query, kwparse, fromYear, fromMonth, toYear, toMonth, numberofentries):
+    query = str(numberofentries) + "_" + query
     if not os.path.exists(query):
         os.makedirs(query) # making a seprate directory for storing webpages
     else:
