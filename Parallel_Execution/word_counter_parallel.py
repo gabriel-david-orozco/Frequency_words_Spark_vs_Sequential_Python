@@ -1,19 +1,15 @@
 from pyspark import SparkContext, SparkConf
 import time
+import sys
 sc = SparkContext(appName="word_counter")
 
-print("How many files you want to append?")
-tolal_number_files = input ()
+files_to_evaluate = sys.argv[3:]
 
-print("Put the names of the files you want to evaluate")
-files_to_evaluate = []
-for m in range(int(tolal_number_files)):
-    files_to_evaluate.append(input ())
 
 print("Put the number of workers in the cluster")
-machines = input ()
+machines = sys.argv[1]
 print("Put the number of cores in each machines")
-cores = input ()
+cores = sys.argv[2]
 for i in files_to_evaluate:
     j = 1
     # Simply reading the context for spark and spliting using lines
@@ -24,7 +20,7 @@ for i in files_to_evaluate:
     contarPalabras = lineas.map(lambda word: (word, 1)).reduceByKey(lambda v1,v2:v1 +v2)
     counted_list = contarPalabras.collect()
     print(counted_list)
-    file = open('record_' +'cores_' cores + '_machines_' + machines + '_' + str(j) ,'a')
+    file = open('record_' +'cores_' + cores + '_machines_' + machines + '_' + str(j) ,'a')
     execution_time = str(time.time()-start_time)
     file.write(execution_time +'\n')
     print(f"the total execution time was: {(time.time()-start_time)}")
