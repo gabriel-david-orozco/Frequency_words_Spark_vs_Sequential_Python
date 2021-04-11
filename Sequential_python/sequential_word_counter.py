@@ -1,5 +1,6 @@
 import time
-def differentWordsCounter_v2 (text) : # Word counter based on dictionaries
+def differentWordsCounter_v2 (text) : # Word counter based on dictionaries text is a list type
+
   counts = dict()
   for word in text :
     if word in counts:
@@ -9,22 +10,23 @@ def differentWordsCounter_v2 (text) : # Word counter based on dictionaries
   return sorted(counts.items(), key=lambda x: x[1], reverse=True)
 
 print("Put the names of the files you want to evaluate")
-files_to_evaluate[0] = input ( prompt )
-files_to_evaluate[1] = input ( prompt )
-files_to_evaluate[2] = input ( prompt )
-for i in files_to_evaluate:
-    start_time=time.time()
-    file = open('/home/' + i, 'r')
+files_to_evaluate = []
+files_to_evaluate.append(input ())
+for k in range(1, 20):
+    for i in files_to_evaluate:
+        j = 0
+        start_time=time.time()
+        file = open('/home/Frequency_words_Spark_vs_Sequential_Python/' + i, 'r')
+        lines = file.read().split(" ")
+        file_list = []
+        for line in lines:
+          file_list.append(line)
 
-    lines = file.read().split(" ")
-    file_list = []
-    for line in lines:
-      file_list.append(line)
+        for palabra, contador in differentWordsCounter_v2(file_list):
+            print("{} : {}".format(palabra, contador))
 
-    for palabra, contador in differentWordsCounter_v2(file_list):
-        print("{} : {}".format(palabra, contador))
-
-    file = open('record_sequential_' + j ,'a')
-    execution_time = str(time.time()-start_time)
-    file.write(execution_time +'\n')
-    print(f"the total execution time was: {(time.time()-start_time)}")
+        file = open('record_sequential_' + str(j) ,'a')
+        execution_time = str(time.time()-start_time)
+        file.write(execution_time +'\n')
+        print(f"the total execution time was: {(time.time()-start_time)}")
+        j += 1

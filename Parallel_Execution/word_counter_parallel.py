@@ -20,7 +20,7 @@ for i in files_to_evaluate:
     contarPalabras = lineas.map(lambda word: (word, 1)).reduceByKey(lambda v1,v2:v1 +v2)
     counted_list = contarPalabras.collect()
     print(counted_list)
-    file = open('record_' +'cores_' cores + '_machines_' + machines + '_' + j ,'a')
+    file = open('record_' +'cores_' cores + '_machines_' + machines + '_' + str(j) ,'a')
     execution_time = str(time.time()-start_time)
     file.write(execution_time +'\n')
     print(f"the total execution time was: {(time.time()-start_time)}")
