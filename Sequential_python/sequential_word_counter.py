@@ -18,8 +18,9 @@ for m in range(int(tolal_number_files)):
     files_to_evaluate.append(input ())
 
 for k in range(1, 20):
+    j = 0
     for i in files_to_evaluate:
-        j = 0
+
         start_time=time.time()
         file = open('/home/Frequency_words_Spark_vs_Sequential_Python/' + i, 'r')
         lines = file.read().split(" ")
